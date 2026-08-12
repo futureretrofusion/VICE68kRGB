@@ -1,0 +1,19 @@
+VICE68kRGB GitHub sanitisation report
+==================================
+
+Source: /home/fff2025/Documents/Amiga/VICE/vice-3.1
+Stage:  /home/fff2025/Documents/GitHub/VICE68kRGB
+
+[PASS] V37 stable RGB marker present.
+[PASS] V38 rejected experiment absent.
+[PASS] No credential/private-key filenames found.
+[PASS] Personal development-machine paths sanitised and rechecked.
+[PASS] No ROM/media/snapshot payload extensions found.
+[PASS] Upstream COPYING retained.
+[PASS] LICENSE.md states GPL-2.0-or-later and FRF contribution policy.
+[PASS] FRF contribution/provenance record present.
+[PASS] No additional non-commercial/rehosting restriction added.
+[PASS] No symlinks found.
+[PASS] No files larger than 25 MiB.
+
+Result: PASS

@@ -1,0 +1,44 @@
+VICE 3.1 FRF Runtime Test Checklist
+===================================
+
+Before publishing the ZIP, test at least x64 from each processor directory.
+
+Cold start
+----------
+[ ] Emulator reaches approximately 50 fps without opening a dialog.
+[ ] AHI sound begins immediately.
+[ ] Sound Settings does not need to be opened to initialise audio.
+
+Pause and resume
+----------------
+[ ] Right-Amiga+P halts emulation.
+[ ] AHI becomes available to another AHI application while VICE is paused.
+[ ] Right-Amiga+P resumes from the same emulated state.
+[ ] Sound returns after resume.
+
+Display
+-------
+[ ] Windowed RTG rendering is correct.
+[ ] Fullscreen enters and exits correctly.
+[ ] Status bar and dirty updates remain correct.
+
+Exit
+----
+[ ] Right-Amiga+X exits cleanly from windowed mode.
+[ ] Right-Amiga+X exits cleanly from fullscreen mode.
+
+Representative suite smoke test
+-------------------------------
+[ ] x64sc starts.
+[ ] x128 starts.
+[ ] xvic starts.
+[ ] xpet starts.
+[ ] xplus4 starts.
+[ ] x64dtv starts.
+[ ] xscpu64 starts.
+[ ] xcbm2 starts.
+[ ] xcbm5x0 starts.
+[ ] vsid starts and plays a legal SID file.
+
+The packager verifies compilation, file presence and source structure.
+Amiga-side runtime validation must still be completed on the target system.

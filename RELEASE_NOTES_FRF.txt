@@ -1,0 +1,84 @@
+VICE 3.1 FRF AmigaOS / PiStorm Release
+======================================
+
+Release date: 29 June 2026
+Base project: VICE 3.1
+Target platform: AmigaOS 3 m68k, with PiStorm / Emu68-focused builds
+
+Included processor builds
+-------------------------
+- M68020 + M68881
+- M68060 hard-float
+
+Included emulator programs
+--------------------------
+x64, x64sc, x64dtv, xscpu64, x128, xvic, xpet, xplus4, xcbm2,
+xcbm5x0 and vsid.
+
+Final release fixes
+-------------------
+- Corrected the AmigaOS timeval subtraction used by the AHI timing path.
+  The original malformed ternary could make the complete eight-fragment
+  audio buffer appear permanently full and throttle emulation to roughly
+  6-7 frames per second until a settings dialog reset synchronisation.
+- Connected the generic VICE AHI resume hook to the real ahi_resume()
+  implementation. AHI now reopens after startup/UI suspend-resume cycles
+  instead of remaining silent until Sound Settings was opened and accepted.
+- These two fixes are shared by all eleven emulator binaries.
+
+Release highlights
+------------------
+- Native-format Picasso96 dirty-rectangle rendering.
+- Direct signed 16-bit AHI audio output.
+- AHI defaults tuned to 22050 Hz, 441 samples and 8 fragments.
+- Right-Amiga+P hard Pause/Resume.
+- The emulated CPU is halted while paused.
+- AHI is released while paused and reopened before emulation resumes.
+- FastSID/ReSID state is preserved while the AHI backend is released.
+- Improved and corrected language menu handling.
+- Corrected fullscreen resource handling.
+- PRG RAM injection enabled by default.
+- True-drive emulation disabled by default.
+- FastSID selected as the default SID engine.
+- ReSID retained and selectable.
+- SID filters disabled by default.
+- Right-Amiga+Q disabled; Grab Mouse remains available from the menu.
+- Right-Amiga+X remains Quit.
+- Network shutdown protected when networking was not initialised.
+- Null-safe Amiga shared-library shutdown checks.
+- Separate processor-optimised 68020/68881 and 68060 builds.
+- Complete corresponding modified source included.
+
+Important notes
+---------------
+- No copyrighted Commodore ROM images are included.
+- Existing VICE configuration files may override release defaults.
+- ReSID is considerably heavier than FastSID on these targets.
+- Right-Amiga+Q is intentionally unassigned.
+- Right-Amiga+P is hard Pause/Resume.
+- Right-Amiga+X is Quit.
+
+Recommended defaults
+--------------------
+SID engine:       FastSID
+SID filters:      Off
+True drive:       Off
+Audio:            AHI signed 16-bit
+Audio frequency:  22050 Hz
+Audio fragments:  8
+Fragment size:    441 samples
+
+Processor selection
+-------------------
+Use M68020-M68881 for broad m68k/PiStorm compatibility.
+
+Use M68060-HARDFLOAT for compatible Emu68/PiStorm 68060 environments.
+
+Source and licence
+------------------
+VICE is an upstream open-source project created by the VICE development
+team and contributors. FRF does not claim authorship of upstream VICE.
+
+The release ZIP contains the corresponding modified source used for the
+included binaries. Retain the original VICE copyright, attribution and
+licence files when copying or redistributing the package.

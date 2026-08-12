@@ -1,0 +1,71 @@
+# Local build output
+*.o
+*.lo
+*.la
+*.a
+*.Po
+*.Plo
+.deps/
+.libs/
+autom4te.cache/
+config.cache
+config.log
+config.status
+config.h
+stamp-h1
+Makefile
+
+# Emulator binaries
+/x64
+/x64sc
+/x64dtv
+/xscpu64
+/x128
+/xvic
+/xplus4
+/xpet
+/xcbm2
+/xcbm5x0
+/vsid
+
+# FRF local development material
+FRF_RECOVERY_BACKUPS/
+FRF_*BUILD*.log
+FRF_*AUDIT*.txt
+*.log
+
+# Archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# Emulator media / snapshots
+*.vsf
+*.d64
+*.d71
+*.d81
+*.d80
+*.d82
+*.g64
+*.g71
+*.x64
+*.t64
+*.tap
+*.crt
+*.prg
+*.p00
+*.reu
+*.chd
+*.rom
+*.ROM
+
+# Credentials / local environment
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx

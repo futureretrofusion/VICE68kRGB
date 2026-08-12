@@ -1,0 +1,43 @@
+FRF Source Commenting and Audit Policy
+======================================
+
+Substantial FRF changes are documented at feature and resource-ownership
+boundaries rather than by adding repetitive comments to every statement.
+
+Required final feature markers
+------------------------------
+FRF_AHI_TIMER_SUBTRACT_FIX
+    Documents the corrected timeval subtraction used by AHI buffer timing.
+    The comment explains the malformed original expression and the false
+    full-buffer slowdown it caused.
+
+FRF_AHI_BACKEND_RESUME_FIX
+    Documents why the generic VICE sound resume hook must call ahi_resume().
+    The comment explains the silent-startup condition and why Sound Settings
+    previously appeared to repair it.
+
+FRF_HARD_PAUSE_AHI_RELEASE
+    Documents the hard main-CPU pause trap, pause-time AHI resource release,
+    saved backend parameters and reopen-before-resume ordering.
+
+Small declarative changes
+-------------------------
+Obvious menu assignments, such as Right-Amiga+P for Pause and removal of
+Right-Amiga+Q from Grab Mouse, are documented centrally in the release
+notes, contribution notes and generated source audit.
+
+Automated release audit
+-----------------------
+Packaging stops if:
+
+- either final AHI marker is missing;
+- the malformed timer expression remains;
+- _ahi_resume() still returns success without reopening AHI;
+- hard Pause/AHI release support is missing;
+- required key bindings do not match the release notes;
+- claimed shutdown guards or SID defaults are missing.
+
+Upstream code
+-------------
+Unmodified upstream VICE code retains its original comments and attribution.
+FRF comments identify only FRF-specific modifications.

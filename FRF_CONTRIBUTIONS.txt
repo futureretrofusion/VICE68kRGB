@@ -1,0 +1,93 @@
+FRF Contributions to this VICE 3.1 AmigaOS Release
+==================================================
+
+These credits apply only to the FRF modifications and release work listed
+below. VICE itself remains the work of its upstream authors and contributors.
+
+Rendering and Picasso96
+-----------------------
+- Native-pixel-format Picasso96 rendering.
+- Dirty-rectangle display updates to reduce unnecessary full-frame copies.
+- Fullscreen resource corrections.
+- PiStorm/Emu68-focused RTG integration and validation.
+
+Audio timing and initialisation
+-------------------------------
+- Corrected AmigaOS timeval subtraction used for AHI buffer progression.
+- Removed the false full-buffer condition that could throttle startup to
+  approximately 6-7 fps.
+- Connected the VICE sound-driver resume hook to ahi_resume().
+- Corrected cold-start AHI initialisation so sound no longer requires
+  opening Sound Settings and pressing OK.
+- Direct signed 16-bit AHI output.
+- AHI defaults of 22050 Hz, 441 samples and 8 fragments.
+- FastSID selected as the practical default.
+- ReSID retained as a selectable SID implementation.
+- SID filters disabled by default.
+
+Pause and resource management
+-----------------------------
+- Added Right-Amiga+P as the Pause/Resume command key.
+- Added a hard main-CPU pause trap with UI-only event processing.
+- Added pause-time AHI release and parameter-preserving reopen.
+- Preserved FastSID/ReSID state while the AHI backend is released.
+- Reopened AHI before the emulated CPU is permitted to continue.
+
+User interface and localisation
+-------------------------------
+- Improved AmigaOS language menu handling.
+- Corrected AmigaOS menu/resource behaviour.
+- Disabled Right-Amiga+Q, previously assigned to Grab Mouse.
+- Retained Grab Mouse as a normal menu command.
+- Retained Right-Amiga+X as Quit.
+
+Loading and defaults
+--------------------
+- PRG RAM injection enabled by default.
+- True-drive emulation disabled by default.
+- FastSID selected by default.
+
+Shutdown stability
+------------------
+- Protected network shutdown when networking was not built or initialised.
+- Added null-safe checks before closing Amiga shared libraries.
+- Retained the normal VICE Quit path.
+
+Build and release engineering
+-----------------------------
+M68020/M68881 profile:
+
+    -m68020 -m68881 -Ofast -fomit-frame-pointer
+    -fno-strict-aliasing -noixemul -finline-functions
+
+M68060 hard-float profile:
+
+    -m68060 -mhard-float -Ofast -fomit-frame-pointer
+    -fno-strict-aliasing -noixemul -finline-functions
+
+Complete suites contain:
+x64, x64sc, x64dtv, xscpu64, x128, xvic, xpet, xplus4, xcbm2,
+xcbm5x0 and vsid.
+
+Release engineering includes:
+- Clean rebuild of every object for each processor profile.
+- Rebuild of AmigaOS MUI, socket, sound, ReSID and ReSID-DTV archives.
+- Complete corresponding modified source packaging.
+- Source comment and feature audit.
+- Per-profile build information and SHA-256 checksums.
+- Build logs and a release-wide manifest.
+
+Suggested compact credit
+------------------------
+AmigaOS/PiStorm integration, RTG/AHI optimisation, AHI timing and startup
+fixes, hard pause, interface fixes, shutdown safeguards and release builds
+by Future Retro Fusion (FRF).
+
+Suggested full credit
+---------------------
+Based on VICE 3.1 by the VICE development team and contributors.
+AmigaOS/PiStorm integration, native Picasso96 dirty rendering, direct
+16-bit AHI output, AHI timing and cold-start initialisation corrections,
+hard pause with pause-time AHI release, localisation and menu improvements,
+default configuration changes, shutdown safeguards and processor-optimised
+release packaging contributed by Future Retro Fusion (FRF).

@@ -1,0 +1,13 @@
+VICE68kRGB staging path sanitisation
+=================================
+
+Rewritten staging files:
+  src/Makefile.FRF_RELEASE_BACKUP_20260628_215055
+  src/Makefile.FRF_RELEASE_BACKUP_20260628_232228
+  src/Makefile.FRF_RELEASE_BACKUP_20260628_233651
+  src/Makefile.FRF_RELEASE_BACKUP_20260629_012428
+  src/Makefile.pre_REMOVE_STALE_PNG_LINK_20260620_203859.bak
+  src/gfxoutputdrv/Makefile.pre_NO_PNG_20260620_112728.bak
+
+Only the staging copy was changed.
+The live VICE source tree was not modified.
